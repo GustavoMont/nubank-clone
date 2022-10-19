@@ -3,14 +3,14 @@ import { AntDesign } from "@expo/vector-icons";
 import { Feather } from "@expo/vector-icons";
 import React, { useState } from "react";
 import colors from "../../styles/colors";
+import useBalance from "../../Context/hooks/useBalance";
 
 interface InfoBlockItemProps {
   children: React.ReactNode;
 }
 
 const UserInfo = () => {
-  const [isBalenceVisible, setIsBalenceVisible] = useState(false);
-
+  const { isBalanceVisible, toggleBalanceVisibility } = useBalance();
   function InfoBlockItem(props: InfoBlockItemProps) {
     return <View style={styles.infoBlockItems}>{props.children}</View>;
   }
@@ -22,10 +22,8 @@ const UserInfo = () => {
       </View>
       <View style={styles.infoBlocks}>
         <InfoBlockItem>
-          <TouchableOpacity
-            onPress={() => setIsBalenceVisible((state) => !state)}
-          >
-            {isBalenceVisible ? (
+          <TouchableOpacity onPress={toggleBalanceVisibility}>
+            {isBalanceVisible ? (
               <Feather name="eye" size={20} color={colors.white} />
             ) : (
               <Feather name="eye-off" size={20} color={colors.white} />

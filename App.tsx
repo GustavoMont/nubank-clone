@@ -5,10 +5,14 @@ import Header from "./src/components/Header/Header";
 import colors from "./src/styles/colors";
 import { useFonts } from "expo-font";
 import Account from "./src/components/Account/Account";
+import BalanceContext from "./src/Context/BalanceContext";
+import BalanceProvider from "./src/Context/Providers/BalanceProvider";
 
 export default function App() {
   const [fontsLoaded] = useFonts({
     Poppins: require("./assets/fonts/Poppins-Regular.ttf"),
+    "Poppins-Bold": require("./assets/fonts/Poppins-SemiBold.ttf"),
+    "Poppins-Light": require("./assets/fonts/Poppins-Light.ttf"),
   });
 
   if (!fontsLoaded) {
@@ -16,17 +20,19 @@ export default function App() {
   }
 
   return (
-    <SafeAreaView style={{ flex: 1 }}>
-      <StatusBar
-        barStyle={"light-content"}
-        backgroundColor={styles.statusbar.backgroundColor}
-      />
-      <Header statusBarColor={styles.statusbar.backgroundColor} />
+    <BalanceProvider>
+      <SafeAreaView style={{ flex: 1 }}>
+        <StatusBar
+          barStyle={"light-content"}
+          backgroundColor={styles.statusbar.backgroundColor}
+        />
+        <Header statusBarColor={styles.statusbar.backgroundColor} />
 
-      <View style={styles.container}>
-        <Account />
-      </View>
-    </SafeAreaView>
+        <View style={styles.container}>
+          <Account />
+        </View>
+      </SafeAreaView>
+    </BalanceProvider>
   );
 }
 
