@@ -11,7 +11,7 @@ const Header = (props: HeaderProps) => {
   return (
     <View style={[styles.container, { backgroundColor: props.statusBarColor }]}>
       <UserInfo />
-      <Text>Header</Text>
+      <Text style={styles.welcomeText}>Olá, Usuário</Text>
     </View>
   );
 };
@@ -22,6 +22,12 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: colors.mainColor,
     height: 184,
-    padding: 16,
+    paddingHorizontal: 24,
+    paddingVertical: 28,
+  },
+  welcomeText: {
+    marginTop: "auto",
+    fontSize: 20,
+    color: colors.white,
   },
 });
