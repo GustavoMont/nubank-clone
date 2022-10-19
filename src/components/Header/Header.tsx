@@ -2,6 +2,7 @@ import { StyleSheet, Text, View } from "react-native";
 import React from "react";
 import colors from "../../styles/colors";
 import UserInfo from "./UserInfo";
+import Title from "../common/Title";
 
 interface HeaderProps {
   statusBarColor: string;
@@ -11,7 +12,7 @@ const Header = (props: HeaderProps) => {
   return (
     <View style={[styles.container, { backgroundColor: props.statusBarColor }]}>
       <UserInfo />
-      <Text style={styles.welcomeText}>Olá, Usuário</Text>
+      <Title style={styles.welcomeText}>Olá, usuário</Title>
     </View>
   );
 };
@@ -27,7 +28,6 @@ const styles = StyleSheet.create({
   },
   welcomeText: {
     marginTop: "auto",
-    fontSize: 20,
     color: colors.white,
   },
 });
