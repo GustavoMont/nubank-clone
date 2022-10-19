@@ -4,6 +4,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import Header from "./src/components/Header/Header";
 import colors from "./src/styles/colors";
 import { useFonts } from "expo-font";
+import Account from "./src/components/Account/Account";
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -15,13 +16,15 @@ export default function App() {
   }
 
   return (
-    <SafeAreaView>
-      <View>
-        <StatusBar
-          barStyle={"light-content"}
-          backgroundColor={styles.statusbar.backgroundColor}
-        />
-        <Header statusBarColor={styles.statusbar.backgroundColor} />
+    <SafeAreaView style={{ flex: 1 }}>
+      <StatusBar
+        barStyle={"light-content"}
+        backgroundColor={styles.statusbar.backgroundColor}
+      />
+      <Header statusBarColor={styles.statusbar.backgroundColor} />
+
+      <View style={styles.container}>
+        <Account />
       </View>
     </SafeAreaView>
   );
@@ -29,8 +32,9 @@ export default function App() {
 
 const styles = StyleSheet.create({
   container: {
+    backgroundColor: colors.white,
+    padding: 24,
     flex: 1,
-    backgroundColor: colors.mainColor,
   },
   statusbar: {
     backgroundColor: colors.mainColor,
