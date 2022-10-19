@@ -1,6 +1,7 @@
 import React from "react";
 import { StyleSheet, Text, View, StatusBar } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
+import Header from "./src/components/Header/Header";
 import colors from "./src/styles/colors";
 
 export default function App() {
@@ -9,9 +10,9 @@ export default function App() {
       <View>
         <StatusBar
           barStyle={"light-content"}
-          backgroundColor={colors.mainColor}
+          backgroundColor={styles.statusbar.backgroundColor}
         />
-        <Text>Hello World</Text>
+        <Header statusBarColor={styles.statusbar.backgroundColor} />
       </View>
     </SafeAreaView>
   );
@@ -20,6 +21,9 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: colors.mainColor,
+  },
+  statusbar: {
     backgroundColor: colors.mainColor,
   },
 });
