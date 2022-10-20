@@ -7,6 +7,7 @@ import { useFonts } from "expo-font";
 import Account from "./src/components/Account/Account";
 import BalanceContext from "./src/Context/BalanceContext";
 import BalanceProvider from "./src/Context/Providers/BalanceProvider";
+import ServiceList from "./src/components/ServiceList/ServiceList";
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -27,9 +28,9 @@ export default function App() {
           backgroundColor={styles.statusbar.backgroundColor}
         />
         <Header statusBarColor={styles.statusbar.backgroundColor} />
-
         <View style={styles.container}>
           <Account />
+          <ServiceList />
         </View>
       </SafeAreaView>
     </BalanceProvider>

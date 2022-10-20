@@ -3,6 +3,7 @@ import React from "react";
 import Title from "../common/Title";
 import useBalance from "../../Context/hooks/useBalance";
 import colors from "../../styles/colors";
+import ScreenComponentContainer from "../common/ScreenComponentContainer";
 
 interface BalanceItemsProps {
   children: React.ReactNode;
@@ -19,7 +20,11 @@ const Account = () => {
   }
 
   return (
-    <View>
+    <ScreenComponentContainer
+      style={{
+        height: 72,
+      }}
+    >
       <View>
         <Title fontWeight="Bold">Conta</Title>
       </View>
@@ -33,7 +38,7 @@ const Account = () => {
           <View style={styles.viewBlocker} />
         )}
       </View>
-    </View>
+    </ScreenComponentContainer>
   );
 };
 
