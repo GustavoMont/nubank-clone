@@ -1,11 +1,36 @@
 import * as React from "react";
+import { Text } from "react-native";
 import Svg, { Path, SvgProps } from "react-native-svg";
+import TransferIconSvg from "../../../assets/icons/TransferIcon.svg";
+import DepositIconSvg from "../../../assets/icons/DepositIcon.svg";
 
 interface IconProps extends SvgProps {
-  fill: string;
+  fill?: string;
   stroke: string;
   size?: number;
 }
+
+export const DepositIcon = (props: IconProps) => (
+  <Text>
+    <DepositIconSvg
+      {...props}
+      width={props.size}
+      fill={props.fill}
+      stroke={props.stroke}
+    />
+  </Text>
+);
+
+export const TransferIcon = (props: IconProps) => (
+  <Text>
+    <TransferIconSvg
+      width={props.size}
+      height={props.size}
+      fill={props.fill}
+      stroke={props.stroke}
+    />
+  </Text>
+);
 
 export const PixIcon = (props: IconProps) => (
   <Svg
