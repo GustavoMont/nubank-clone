@@ -9,6 +9,7 @@ import BalanceContext from "./src/Context/BalanceContext";
 import BalanceProvider from "./src/Context/Providers/BalanceProvider";
 import ServiceList from "./src/components/ServiceList/ServiceList";
 import CreditCard from "./src/components/CreditCard/CreditCard";
+import MyCards from "./src/components/MyCards/MyCards";
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -32,6 +33,7 @@ export default function App() {
         <View style={styles.container}>
           <Account />
           <ServiceList />
+          <MyCards />
           <CreditCard />
         </View>
       </SafeAreaView>

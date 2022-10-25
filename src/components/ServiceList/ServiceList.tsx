@@ -9,7 +9,7 @@ import colors from "../../styles/colors";
 
 const ServiceList = () => {
   const iconColor = colors.black;
-  const bgIconColor = colors.darkMainColor + "18";
+  const bgIconColor = colors.darkWhite + "55";
   const services: Partial<ServiceItemListProps>[] = [
     {
       title: "Área Pix",
