@@ -1,20 +1,28 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, TouchableOpacity, View } from "react-native";
 import React from "react";
 import { MaterialIcons } from "@expo/vector-icons";
 import Title from "../common/Title";
 import colors from "../../styles/colors";
+import { useNavigation } from "@react-navigation/native";
 
 const MyCards = () => {
+  const navigation = useNavigation();
   return (
-    <View style={[styles.container]}>
-      <MaterialIcons
-        style={styles.icon}
-        name="credit-card"
-        size={24}
-        color="black"
-      />
-      <Title>Meus Cartões</Title>
-    </View>
+    <TouchableOpacity
+      onPress={() => {
+        navigation.navigate("My Cards", {});
+      }}
+    >
+      <View style={[styles.container]}>
+        <MaterialIcons
+          style={styles.icon}
+          name="credit-card"
+          size={24}
+          color="black"
+        />
+        <Title>Meus Cartões</Title>
+      </View>
+    </TouchableOpacity>
   );
 };
 
