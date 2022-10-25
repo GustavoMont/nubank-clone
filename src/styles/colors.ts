@@ -4,4 +4,5 @@ export default {
   darkMainColor: "#530082",
   white: "#F5F5F5",
   black: "#191919",
+  gray: "#6f797a",
 };

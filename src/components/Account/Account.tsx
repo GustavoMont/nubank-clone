@@ -4,20 +4,10 @@ import Title from "../common/Title";
 import useBalance from "../../Context/hooks/useBalance";
 import colors from "../../styles/colors";
 import ScreenComponentContainer from "../common/ScreenComponentContainer";
-
-interface BalanceItemsProps {
-  children: React.ReactNode;
-}
+import CurrencyText from "../common/CurrencyText";
 
 const Account = () => {
   const { isBalanceVisible } = useBalance();
-
-  function formateToCurrency(value: number) {
-    return value.toFixed(2).replace(".", ",");
-  }
-  function BalanceItem(props: BalanceItemsProps) {
-    return <Title style={styles.balanceItem}>{props.children}</Title>;
-  }
 
   return (
     <ScreenComponentContainer
@@ -30,10 +20,7 @@ const Account = () => {
       </View>
       <View>
         {isBalanceVisible ? (
-          <View style={styles.balance}>
-            <BalanceItem>R$</BalanceItem>
-            <BalanceItem>{formateToCurrency(5)}</BalanceItem>
-          </View>
+          <CurrencyText value={5} />
         ) : (
           <View style={styles.viewBlocker} />
         )}
@@ -45,12 +32,6 @@ const Account = () => {
 export default Account;
 
 const styles = StyleSheet.create({
-  balance: {
-    flexDirection: "row",
-  },
-  balanceItem: {
-    marginEnd: 8,
-  },
   viewBlocker: {
     width: 200,
     height: 32,

@@ -1,21 +1,20 @@
-import { Platform, StyleSheet, Text, TextProps } from "react-native";
+import { StyleSheet, Text, TextProps, View } from "react-native";
 import React from "react";
-import FontWeight from "../../models/TitleType";
 import { handleFontWeight } from "../../functions/handleText";
-
-interface TitleProps extends TextProps {
-  fontWeight?: FontWeight;
-}
+import FontWeight from "../../models/TitleType";
 
 const fontFamily = "Poppins";
 
-const Title = (props: TitleProps) => {
+interface ParagraphProps extends TextProps {
+  fontWeight?: FontWeight;
+}
+
+const Paragraph = (props: ParagraphProps) => {
   return (
     <Text
-      {...props}
       style={[
         props.style,
-        styles.standard,
+        styles.text,
         handleFontWeight(fontFamily, props.fontWeight),
       ]}
     >
@@ -24,11 +23,11 @@ const Title = (props: TitleProps) => {
   );
 };
 
-export default Title;
+export default Paragraph;
 
 const styles = StyleSheet.create({
-  standard: {
+  text: {
     fontFamily,
-    fontSize: 20,
+    fontSize: 12,
   },
 });
