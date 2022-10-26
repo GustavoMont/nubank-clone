@@ -7,6 +7,7 @@ const fontFamily = "Poppins";
 
 interface ParagraphProps extends TextProps {
   fontWeight?: FontWeight;
+  fontSize?: number;
 }
 
 const Paragraph = (props: ParagraphProps) => {
@@ -16,6 +17,7 @@ const Paragraph = (props: ParagraphProps) => {
         props.style,
         styles.text,
         handleFontWeight(fontFamily, props.fontWeight),
+        { fontSize: props.fontSize || styles.text.fontSize },
       ]}
     >
       {props.children}

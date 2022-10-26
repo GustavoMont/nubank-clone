@@ -5,10 +5,8 @@ import Title from "../common/Title";
 import colors from "../../styles/colors";
 import { useNavigation } from "@react-navigation/native";
 import { StackNavigationProp } from "@react-navigation/stack";
-import RootStackParamList from "../../models/RootStackParamList";
+import { homeNavigation } from "../../models/RootStackParamList";
 import VerticalSpacedContainer from "../common/VerticalSpacedContainer";
-
-type homeNavigation = StackNavigationProp<RootStackParamList, "Home">;
 
 const MyCards = () => {
   const navigation = useNavigation<homeNavigation>();
