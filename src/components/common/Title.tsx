@@ -1,10 +1,18 @@
-import { Platform, StyleSheet, Text, TextProps } from "react-native";
+import {
+  Platform,
+  StyleProp,
+  StyleSheet,
+  Text,
+  TextProps,
+  TextStyle,
+} from "react-native";
 import React from "react";
 import FontWeight from "../../models/TitleType";
 import { handleFontWeight } from "../../functions/handleText";
 
 interface TitleProps extends TextProps {
   fontWeight?: FontWeight;
+  forceStyle?: StyleProp<TextStyle>;
 }
 
 const fontFamily = "Poppins";
@@ -17,6 +25,7 @@ const Title = (props: TitleProps) => {
         props.style,
         styles.standard,
         handleFontWeight(fontFamily, props.fontWeight),
+        props.forceStyle,
       ]}
     >
       {props.children}

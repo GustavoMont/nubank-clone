@@ -11,6 +11,7 @@
   "dependencies": {
     "@react-navigation/native": "^6.0.13",
     "@react-navigation/native-stack": "^6.9.1",
+    "@react-navigation/stack": "^6.3.2",
     "expo": "~46.0.16",
     "expo-status-bar": "~1.4.0",
     "react": "18.0.0",
@@ -23,6 +24,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
+    "@types/": "react-navigation/native",
     "@types/react": "~18.0.14",
     "@types/react-native": "~0.69.1",
     "@types/react-navigation": "^3.4.0",

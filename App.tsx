@@ -7,6 +7,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { NavigationContainer } from "@react-navigation/native";
 import Home from "./src/screens/Home";
 import MyCardsScreen from "./src/screens/MyCardsScreen";
+import RootStackParamList from "./src/models/RootStackParamList";
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -15,7 +16,7 @@ export default function App() {
     "Poppins-Light": require("./assets/fonts/Poppins-Light.ttf"),
   });
 
-  const Stack = createNativeStackNavigator();
+  const Stack = createNativeStackNavigator<RootStackParamList>();
 
   if (!fontsLoaded) {
     return null;
@@ -34,7 +35,7 @@ export default function App() {
           }}
         >
           <Stack.Screen name="Home" component={Home} />
-          <Stack.Screen name="My Cards" component={MyCardsScreen} />
+          <Stack.Screen name="MyCards" component={MyCardsScreen} />
         </Stack.Navigator>
       </NavigationContainer>
     </BalanceProvider>

@@ -4,25 +4,32 @@ import { MaterialIcons } from "@expo/vector-icons";
 import Title from "../common/Title";
 import colors from "../../styles/colors";
 import { useNavigation } from "@react-navigation/native";
+import { StackNavigationProp } from "@react-navigation/stack";
+import RootStackParamList from "../../models/RootStackParamList";
+import VerticalSpacedContainer from "../common/VerticalSpacedContainer";
+
+type homeNavigation = StackNavigationProp<RootStackParamList, "Home">;
 
 const MyCards = () => {
-  const navigation = useNavigation();
+  const navigation = useNavigation<homeNavigation>();
   return (
-    <TouchableOpacity
-      onPress={() => {
-        navigation.navigate("My Cards", {});
-      }}
-    >
-      <View style={[styles.container]}>
-        <MaterialIcons
-          style={styles.icon}
-          name="credit-card"
-          size={24}
-          color="black"
-        />
-        <Title>Meus Cartões</Title>
-      </View>
-    </TouchableOpacity>
+    <VerticalSpacedContainer>
+      <TouchableOpacity
+        onPress={() => {
+          navigation.navigate("MyCards");
+        }}
+      >
+        <View style={[styles.container]}>
+          <MaterialIcons
+            style={styles.icon}
+            name="credit-card"
+            size={24}
+            color="black"
+          />
+          <Title>Meus Cartões</Title>
+        </View>
+      </TouchableOpacity>
+    </VerticalSpacedContainer>
   );
 };
 

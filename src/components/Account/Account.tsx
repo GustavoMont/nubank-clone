@@ -5,16 +5,13 @@ import useBalance from "../../Context/hooks/useBalance";
 import colors from "../../styles/colors";
 import ScreenComponentContainer from "../common/ScreenComponentContainer";
 import CurrencyText from "../common/CurrencyText";
+import VerticalSpacedContainer from "../common/VerticalSpacedContainer";
 
 const Account = () => {
   const { isBalanceVisible } = useBalance();
 
   return (
-    <ScreenComponentContainer
-      style={{
-        height: 72,
-      }}
-    >
+    <VerticalSpacedContainer>
       <View>
         <Title fontWeight="Bold">Conta</Title>
       </View>
@@ -25,7 +22,7 @@ const Account = () => {
           <View style={styles.viewBlocker} />
         )}
       </View>
-    </ScreenComponentContainer>
+    </VerticalSpacedContainer>
   );
 };
 

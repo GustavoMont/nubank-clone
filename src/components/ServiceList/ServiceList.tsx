@@ -6,11 +6,12 @@ import ScreenComponentContainer from "../common/ScreenComponentContainer";
 import ServiceItemList, { ServiceItemListProps } from "./ServiceItemList";
 import { DepositIcon, PixIcon, TransferIcon } from "../common/icons";
 import colors from "../../styles/colors";
+import VerticalSpacedContainer from "../common/VerticalSpacedContainer";
 
 const ServiceList = () => {
   const iconColor = colors.black;
   const bgIconColor = colors.darkWhite + "55";
-  const services: Partial<ServiceItemListProps>[] = [
+  const services: { title: string; icon: JSX.Element }[] = [
     {
       title: "Área Pix",
       icon: <PixIcon fill={iconColor} stroke={iconColor} size={32} />,
@@ -34,21 +35,17 @@ const ServiceList = () => {
   ];
 
   return (
-    <ScreenComponentContainer>
+    <VerticalSpacedContainer>
       <FlatList
         data={services}
         renderItem={({ item }) => (
-          <ServiceItemList
-            icon={item.icon || <></>}
-            title={item.title || ""}
-            backgroundColor={bgIconColor}
-          />
+          <ServiceItemList {...item} backgroundColor={bgIconColor} />
         )}
         showsHorizontalScrollIndicator={false}
         horizontal
         ItemSeparatorComponent={() => <View style={{ width: 16 }} />}
       />
-    </ScreenComponentContainer>
+    </VerticalSpacedContainer>
   );
 };
 
