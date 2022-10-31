@@ -2,6 +2,7 @@ import { StyleSheet, Text, View } from "react-native";
 import React from "react";
 import Title from "./Title";
 import { formateToCurrency } from "../../functions/handleText";
+import colors from "../../styles/colors";
 
 interface BalanceItemsProps {
   children: React.ReactNode;
@@ -36,5 +37,6 @@ const styles = StyleSheet.create({
   },
   balanceItem: {
     marginEnd: 8,
+    color: colors.black + "aa",
   },
 });
