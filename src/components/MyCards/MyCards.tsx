@@ -4,7 +4,6 @@ import { MaterialIcons } from "@expo/vector-icons";
 import Title from "../common/Title";
 import colors from "../../styles/colors";
 import { useNavigation } from "@react-navigation/native";
-import { StackNavigationProp } from "@react-navigation/stack";
 import { homeNavigation } from "../../models/RootStackParamList";
 import VerticalSpacedContainer from "../common/VerticalSpacedContainer";
 

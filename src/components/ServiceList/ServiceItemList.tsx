@@ -1,23 +1,36 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import React from "react";
-import colors from "../../styles/colors";
+import { useNavigation } from "@react-navigation/native";
+import {
+  homeNavigation,
+  NavigationKeys,
+} from "../../models/RootStackParamList";
 
 export interface ServiceItemListProps {
   icon: JSX.Element;
   title: string;
   backgroundColor: string;
+  targetRoute?: NavigationKeys;
 }
 
 const ServiceItemList = (props: ServiceItemListProps) => {
+  const { icon, backgroundColor, title, targetRoute } = props;
+  const navigation = useNavigation<homeNavigation>();
   return (
-    <View style={styles.container}>
-      <View style={[styles.icon, { backgroundColor: props.backgroundColor }]}>
-        {props.icon}
+    <TouchableOpacity
+      onPress={() => {
+        navigation.navigate(targetRoute || "Building");
+      }}
+    >
+      <View style={styles.container}>
+        <View style={[styles.icon, { backgroundColor: backgroundColor }]}>
+          {icon}
+        </View>
+        <View style={styles.titleContainer}>
+          <Text style={styles.title}>{title}</Text>
+        </View>
       </View>
-      <View style={styles.titleContainer}>
-        <Text style={styles.title}>{props.title}</Text>
-      </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 

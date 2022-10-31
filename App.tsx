@@ -8,6 +8,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import Home from "./src/screens/Home";
 import MyCardsScreen from "./src/screens/MyCardsScreen";
 import RootStackParamList from "./src/models/RootStackParamList";
+import BuildingScreen from "./src/screens/BuildingScreen";
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -36,6 +37,7 @@ export default function App() {
         >
           <Stack.Screen name="Home" component={Home} />
           <Stack.Screen name="MyCards" component={MyCardsScreen} />
+          <Stack.Screen name="Building" component={BuildingScreen} />
         </Stack.Navigator>
       </NavigationContainer>
     </BalanceProvider>
