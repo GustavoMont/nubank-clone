@@ -4,6 +4,7 @@ type RootStackParamList = {
   Home: undefined;
   MyCards: undefined;
   Building: undefined;
+  Login: undefined;
 };
 
 export type homeNavigation = StackNavigationProp<RootStackParamList, "Home">;

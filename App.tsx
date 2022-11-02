@@ -9,6 +9,7 @@ import Home from "./src/screens/Home";
 import MyCardsScreen from "./src/screens/MyCardsScreen";
 import RootStackParamList from "./src/models/RootStackParamList";
 import BuildingScreen from "./src/screens/BuildingScreen";
+import LoginScreen from "./src/screens/LoginScreen";
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -35,6 +36,7 @@ export default function App() {
             headerShown: false,
           }}
         >
+          <Stack.Screen name="Login" component={LoginScreen} />
           <Stack.Screen name="Home" component={Home} />
           <Stack.Screen name="MyCards" component={MyCardsScreen} />
           <Stack.Screen name="Building" component={BuildingScreen} />

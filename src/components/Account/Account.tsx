@@ -32,6 +32,7 @@ const styles = StyleSheet.create({
   viewBlocker: {
     width: 200,
     height: 32,
+    marginBottom: 7,
     backgroundColor: colors.lightMainColor,
   },
 });

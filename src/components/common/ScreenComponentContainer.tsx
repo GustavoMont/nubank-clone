@@ -1,8 +1,13 @@
-import { StyleSheet, Text, View, ViewProps } from "react-native";
+import { StyleSheet, View, ViewProps } from "react-native";
 import React from "react";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 const ScreenComponentContainer = ({ children, style }: ViewProps) => {
-  return <View style={[style, styles.container]}>{children}</View>;
+  return (
+    <SafeAreaView>
+      <View style={[style, styles.container]}>{children}</View>
+    </SafeAreaView>
+  );
 };
 
 export default ScreenComponentContainer;
