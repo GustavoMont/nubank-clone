@@ -38,10 +38,8 @@ export default function LoginScreen() {
   };
 
   const handleBiometricAuth = async () => {
-    // Verifique se o hardware suporta biometria
     const isBiometricAvailable = await LocalAuthentication.hasHardwareAsync();
 
-    // Fallback para o método de autenticação padrão (senha) se a impressão digital não estiver disponível
     if (!isBiometricAvailable)
       return alertComponent(
         "Please enter your password",
@@ -49,13 +47,12 @@ export default function LoginScreen() {
         "OK",
         () => fallBackToDefaultAuth()
       );
-    // Verifique os tipos de biometria disponíveis (impressão digital, reconhecimento facial, reconhecimento de íris)
+
     let supportedBiometrics;
     if (isBiometricAvailable)
       supportedBiometrics =
         await LocalAuthentication.supportedAuthenticationTypesAsync();
 
-    // Verifique se os dados biométricos são salvos localmente no dispositivo do usuário
     const savedBiometrics = await LocalAuthentication.isEnrolledAsync();
     if (!savedBiometrics)
       return alertComponent(
@@ -65,13 +62,11 @@ export default function LoginScreen() {
         () => fallBackToDefaultAuth()
       );
 
-    // Autentica o uso com biometria (impressão digital, reconhecimento facial, reconhecimento de íris)
     const biometricAuth = await LocalAuthentication.authenticateAsync({
       cancelLabel: "Cancelar",
       disableDeviceFallback: false,
     });
 
-    // Faça o login do usuário em caso de sucesso
     if (biometricAuth.success) {
       navigation.navigate("Home");
       console.log("success");
